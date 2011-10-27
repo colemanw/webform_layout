@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * This module provides a simple horizontal box container for webform.
+ *
+ * @author Gergely Szász <szaszg@hu.inter.net>
+ */
+
+/**
+ * Implements hook_help().
+ */
+function webform_hbox_help($section = 'admin/help#webform_hbox', $arg = NULL) {
+  $output = '';
+  switch ($section) {
+    case 'admin/help#webform_hbox':
+      $output = t("<p>This module lets you create horizontal container for webform (!hbox). This box is not decorated at all.</p>
+      <p>Here is how to use:</p>
+      <ul>
+        <li>Go to the main field list of a webform.</li>
+        <li>Add a !hbox field where you would like on your form.</li>
+        <li>Check the %equal box to !hbox divide the space equally between children.</li>
+        <li>Add or drag other fields under the !hbox.</li>
+        <li>Be careful, some component too wide by default (e.g. !textfield). So, you may need to adjust them in order to fit abreast.</li>
+        <li>If you need a title and/or description for your group you have to insert the !hbox into a !fieldset.</li>
+      </ul>
+      Note: The %equal feature works up to 9 children.
+      ", array('!hbox' => t('Horizontal Box'), '!textfield' => t('Textfield'), '!fieldset' => t('Fieldset'), '%equal' => 'Equal width children'));
+      break;
+  }
+
+  return $output;
+}
+
+/**
+ * Implements hook_webform_component_info().
+ */
+function webform_hbox_webform_component_info() {
+  return array(
+    'hbox' => array(
+      'label' => t('Horizontal Box'),
+      'description' => t('Horizontal Box allow you to arrange multiple fields into horizontal layout.'),
+      'features' => array(
+        'csv' => FALSE,
+        'required' => FALSE,
+        'conditional' => FALSE,
+        'group' => TRUE,
+        'title_display' => FALSE,
+      ),
+      'file' => 'hbox.inc',
+    ),
+  );
+}
