@@ -3,7 +3,6 @@ name = Webform Horizontal Box
 description = Add a horizontal container type element to Webform.
 core = 7.x
 package = Webform
-configure = admin/config/content/webform-hbox
 
 dependencies[] = webform
 
