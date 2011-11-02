@@ -1,0 +1,7 @@
+; $Id: $
+name = Webform Layout
+description = Add a layout container type element to Webform.
+core = 7.x
+package = Webform
+
+dependencies[] = webform
