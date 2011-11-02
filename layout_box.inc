@@ -16,7 +16,7 @@ function _webform_defaults_layout_box() {
     'weight' => 0,
     'extra' => array(
       'private' => FALSE,
-      'equal' => FALSE,
+      'align' => 'horiz',
     ),
   );
 }
@@ -26,12 +26,17 @@ function _webform_defaults_layout_box() {
  */
 function _webform_edit_layout_box($component) {
   $form = array();
-  $form['display']['equal'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Equal width fields'),
-    '#default_value' => $component['extra']['equal'],
-    '#description' => t('Gives fields in this container equal width.'),
-    '#parents' => array('extra', 'equal'),
+  $form['display']['align'] = array(
+    '#type' => 'select',
+    '#title' => t('Alignment'),
+    '#default_value' => $component['extra']['align'],
+    '#description' => t('Controls how elements are arranged in this container. Choose "vertical" for no styling.'),
+    '#parents' => array('extra', 'align'),
+    '#options' => array(
+      'vert' => t('Vertical'),
+      'horiz' => t('Horizontal'),
+      'equal' => t('Equal Width'),
+    ),
   );
   $form['extra']['description'] = array(); // Hide the description box.
   return $form;
@@ -56,14 +61,10 @@ function _webform_render_layout_box($component, $value = NULL, $filter = TRUE) {
  * Pre-render function to set a layout_box ID and classes.
  */
 function webform_layout_box_prerender($element) {
-  $classes = array('webform-layout-box');
-  if (!empty($element['#webform_component']['extra']['equal'])
+  $classes = array('webform-layout-box', $element['#webform_component']['extra']['align']);
+  if ($element['#webform_component']['extra']['align'] == 'equal'
   && ($n = count($element['#webform_component']['children'])) > 1) {
-    $classes[] = 'equal-width-children';
-    $classes[] = 'layout_box-child-width-' . $n;
-  }
-  else {
-    $classes[] = 'variable-width-children';
+    $classes[] = 'child-width-' . $n;
   }
   $id = 'webform-component-' . str_replace('_', '-', implode('--', array_slice($element['#parents'], 1)));
   $element['#prefix'] = '<div id="' . $id . '" class="' . implode(' ', $classes) . '">';

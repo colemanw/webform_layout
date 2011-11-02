@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This module provides a simple horizontal box container for webform.
+ * This module provides a layout container for webforms.
  *
  * @author Gergely Szász <szaszg@hu.inter.net>
  */
