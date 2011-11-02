@@ -9,9 +9,9 @@
 /**
  * Implements hook_help().
  */
-function webform_layout_help($section = 'admin/help#webform_hbox', $arg = NULL) {
+function webform_layout_help($section = 'admin/help#webform_layout', $arg = NULL) {
   switch ($section) {
-    case 'admin/help#webform_hbox':
+    case 'admin/help#webform_layout':
       // Return a line-break version of the module README.txt
       return nl2br(file_get_contents(drupal_get_path('module', 'webform_layout') . '/README.txt'));
   }
@@ -24,8 +24,8 @@ function webform_layout_help($section = 'admin/help#webform_hbox', $arg = NULL) 
 function webform_layout_webform_component_info() {
   return array(
     'layout_box' => array(
-      'label' => t('Layout Container'),
-      'description' => t('Allows you to arrange multiple fields into rows and columns.'),
+      'label' => t('Layout Box'),
+      'description' => t('Allows you to arrange fields into rows and columns.'),
       'features' => array(
         'csv' => FALSE,
         'required' => FALSE,

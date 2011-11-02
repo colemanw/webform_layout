@@ -1,23 +1,22 @@
-.webform-container-hbox,
-.webform-container-hbox > div.fieldset-wrapper {
-  border: none;
-  padding: 0;
-  margin: 0;
-  position: static;
+.webform-layout-box {
   word-spacing: -1em; /* remove the space between inline-blocks */
 }
 
-.webform-container-hbox > div.fieldset-wrapper > * {
+.webform-layout-box  > * {
   display: inline-block;
   vertical-align: top;
   word-spacing: normal;
 }
 
-.webform-container-hbox-equal2 > div.fieldset-wrapper > * {width: 50%; word-spacing: normal;}
-.webform-container-hbox-equal3 > div.fieldset-wrapper > * {width: 33%; word-spacing: normal;}
-.webform-container-hbox-equal4 > div.fieldset-wrapper > * {width: 25%; word-spacing: normal;}
-.webform-container-hbox-equal5 > div.fieldset-wrapper > * {width: 20%; word-spacing: normal;}
-.webform-container-hbox-equal6 > div.fieldset-wrapper > * {width: 16%; word-spacing: normal;}
-.webform-container-hbox-equal7 > div.fieldset-wrapper > * {width: 14%; word-spacing: normal;}
-.webform-container-hbox-equal8 > div.fieldset-wrapper > * {width: 12%; word-spacing: normal;}
-.webform-container-hbox-equal9 > div.fieldset-wrapper > * {width: 11%; word-spacing: normal;}
+.webform-layout-box.variable-width-children > * + * {
+  margin-left: 1em;
+}
+
+.layout_box-child-width-2  > * {width: 50%;}
+.layout_box-child-width-3  > * {width: 33%;}
+.layout_box-child-width-4  > * {width: 25%;}
+.layout_box-child-width-5  > * {width: 20%;}
+.layout_box-child-width-6  > * {width: 16%;}
+.layout_box-child-width-7  > * {width: 14%;}
+.layout_box-child-width-8  > * {width: 12%;}
+.layout_box-child-width-9  > * {width: 11%;}
