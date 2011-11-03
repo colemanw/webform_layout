@@ -30,12 +30,12 @@ function _webform_edit_layout_box($component) {
     '#type' => 'select',
     '#title' => t('Alignment'),
     '#default_value' => $component['extra']['align'],
-    '#description' => t('Controls how elements are arranged in this container. Choose "horizontal" to create a row, "equal width" to create a row with equal column widths, or choose "vertical" for no styling (often used to add columns within a horizontal box).'),
+    '#description' => t('Controls how elements are arranged in this container. Choose "horizontal" to create a row, or "equal width" to create a row with equal column widths. The "vertical" option can be used to make columns within a horizontal box.'),
     '#parents' => array('extra', 'align'),
     '#options' => array(
-      'vert' => t('Vertical'),
       'horiz' => t('Horizontal'),
       'equal' => t('Equal Width'),
+      'vert' => t('Vertical'),
     ),
   );
   $form['extra']['description'] = array(); // Hide the description box.
