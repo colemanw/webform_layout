@@ -1,6 +1,6 @@
 Description
 -----------
-This module lets you create layout boxes for webforms. You can use these containers to arrange fields into rows and columns.
+This module adds a new type of Webform component: the layout box. By placing webform fields inside layout boxes, you can arrange them into rows and columns.
 
 How to use
 ----------
