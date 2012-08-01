@@ -38,7 +38,8 @@ function _webform_edit_layout_box($component) {
       'vert' => t('Vertical'),
     ),
   );
-  $form['extra']['description'] = array(); // Hide the description box.
+  // Hide the description box.
+  $form['extra']['description']['#access'] = FALSE;
   return $form;
 }
 
