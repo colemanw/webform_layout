@@ -73,7 +73,7 @@ function webform_layout_box_prerender($element) {
   if ($element['#webform_component']['extra']['align'] == 'equal' && $n > 1) {
     $attributes['class'][] = 'child-width-' . $n;
   }
-  $element['#prefix'] = '<div ' . drupal_attributes($attributes) . '">';
+  $element['#prefix'] = '<div ' . drupal_attributes($attributes) . '>';
   return $element;
 }
 
