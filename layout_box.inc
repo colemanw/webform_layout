@@ -92,7 +92,6 @@ function _webform_display_layout_box($component, $value, $format = 'html') {
     $element = _webform_render_layout_box($component, $value);
   }
 
-  $element['#webform_component'] = $component;
   $element['#format'] = $format;
 
   return $element;
