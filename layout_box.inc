@@ -83,9 +83,9 @@ function webform_layout_box_prerender($element) {
 function _webform_display_layout_box($component, $value, $format = 'html') {
   if ($format == 'text') {
     $element = array(
-      '#title' => $component['name'],
+      '#title' => '',
       '#weight' => $component['weight'],
-      '#theme_wrappers' => array('webform_element_text'),
+      '#theme_wrappers' => array(),
     );
   }
   else {
