@@ -38,10 +38,10 @@ function _webform_edit_layout_box($component) {
       'vert' => t('Vertical'),
     ),
   );
-  // Hide the description box - this element has no description
-  $form['extra']['description']['#access'] = FALSE;
-  // Hide wrapper css class input - this element doesn't get a wrapper.
-  $form['display']['wrapper_classes']['#access'] = FALSE;
+  // Hide name, it's never shown
+  $form['name']['#type'] = 'value';
+  // Hack - name is required by webform but we don't expose it to the user. Instead we'll replace it with the value of form_key.
+  $form['name']['#value'] = 'box';
   return $form;
 }
 
