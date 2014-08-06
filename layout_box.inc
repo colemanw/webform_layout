@@ -69,7 +69,7 @@ function webform_layout_box_prerender($element) {
   $attributes['class'][] = $element['#webform_component']['extra']['align'];
   $attributes['class'][] = 'webform-component--' . str_replace('_', '-', implode('--', array_slice($element['#parents'], 1)));
   // css class for number of children
-  $n = count($element['#webform_component']['children']);
+  $n = empty($element['#webform_component']['children']) ? 0 : count($element['#webform_component']['children']);
   if ($element['#webform_component']['extra']['align'] == 'equal' && $n > 1) {
     $attributes['class'][] = 'child-width-' . $n;
   }
