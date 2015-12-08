@@ -113,6 +113,7 @@ function _webform_display_layout_box($component, $value, $format = 'html') {
  * Implements _form_builder_webform_form_builder_types_component().
  */
 function _form_builder_webform_form_builder_types_layout_box() {
+  drupal_add_css(drupal_get_path('module', 'webform_layout') . '/form_builder.css');
   $fields = array();
 
   $fields['layout_box'] = array(
