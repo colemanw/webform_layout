@@ -88,3 +88,31 @@ function webform_layout_form_add_submit($form, &$form_state) {
     $form_state['redirect'] = array("node/$nid/webform/components", array('query' => array('cid' => $cid)));
   }
 }
+
+/**
+ * Implement hook_theme();
+ */
+function webform_layout_theme(&$element, $form_type, $form_id) {
+  return array(
+    'webform_layout_empty_layout_box' => array(
+      'variables' => array(),
+      'file' => 'layout_box.inc',
+    ),
+  );
+}
+
+/**
+ * Implement hook_form_builder_preview_alter();
+ */
+function webform_layout_form_builder_preview_alter(&$element, $form_type, $form_id) {
+  if ($element['#form_builder']['element_type'] == 'layout_box') {
+    $element['#attributes']['class'][] = 'form-builder-fieldset form-builder-layout-box';
+  }
+
+  if (isset($element['#type']) &&
+    $element['#type'] == 'fieldset' &&
+    $element['#form_builder']['element_type'] == 'layout_box' &&
+    count(element_children($element)) == 0) {
+      $element['#children'] = theme('webform_layout_empty_layout_box');
+  }
+}
